@@ -12,6 +12,7 @@ try {
 const Eris = require('eris');
 const {token} = require('./config.json');
 const client = new Eris(token);
+const color = require('colors');
 const {render, mpRender, guildRender, channelRender, userRender} = require('./render');
 //Connecting to Discord
 client.connect();
@@ -22,35 +23,36 @@ const app = express()
 app.listen(3000);
 app.set('view engine', 'ejs');
 client.on('ready', () => {
-    console.log('Launched!');
-    console.log('Connected to Discord');
-    console.log(`Listening at Port 3000 (http://localhost:3000/)`);
-    //rendering
-    app.get('/', async (req, res) => {
-        await render(client).then(async (r) => {
-            await mpRender(client).then(async (x) => {
-                await res.render('index.ejs', {title: 'The index page!', client: client, message: await r, mp: await x})
-            })
-        })
-    });
-    app.get('/guild/:id', async (req, res) => {
-        await guildRender(client, req.params.id).then(async (r) => {
-            await res.render('guild.ejs', {title: 'The index page!', client: client, message: await r})
-        })
-    })
-    app.get('/channel/:id', async (req, res) => {
-        await channelRender(client, req.params.id).then(async (r) => {
-            await res.render('guild.ejs', {title: 'The index page!', client: client, message: await r})
-        })
-    })
-    app.get('/user/:id', async (req, res) => {
-        await userRender(client, req.params.id).then(async (r) => {
-            await res.render('guild.ejs', {title: 'The index page!', client: client, message: await r})
-        })
-    })
+    console.log(color.blue('Launched!'));
+    console.log(color.green('Connected to Discord'));
+    console.log(color.blue(`Listening at Port 3000 (${color.yellow('http://localhost:3000/')})`));
+
 })
 
 
-client.on('error', () => {
-
+client.on('error', (err) => {
+    console.error(error)
+})
+//rendering
+app.get('/', async (req, res) => {
+    await render(client).then(async (r) => {
+        await mpRender(client).then(async (x) => {
+            await res.render('index.ejs', {title: 'The index page!', client: client, message: await r, mp: await x})
+        })
+    })
+});
+app.get('/guild/:id', async (req, res) => {
+    await guildRender(client, req.params.id).then(async (r) => {
+        await res.render('guild.ejs', {title: 'The index page!', client: client, message: await r})
+    })
+})
+app.get('/channel/:id', async (req, res) => {
+    await channelRender(client, req.params.id).then(async (r) => {
+        await res.render('guild.ejs', {title: 'The index page!', client: client, message: await r})
+    })
+})
+app.get('/user/:id', async (req, res) => {
+    await userRender(client, req.params.id).then(async (r) => {
+        await res.render('guild.ejs', {title: 'The index page!', client: client, message: await r})
+    })
 })
