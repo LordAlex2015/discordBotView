@@ -76,11 +76,10 @@ module.exports = {
             let d = "<div class=\"accordion\" id=\"accordionExample\">";
             await client.guilds.find(g => g.id === guildId).channels.forEach(g => {
                 if (g.type === 0 || g.type === 5 || g.type === 6) {
-                    d += `<div class="channel"><span style="margin-left:25px" data-toggle="collapse" href="#${g.id}" role="button" aria-expanded="false" aria-controls="${g.id}"># ${g.name}</span></div><div class="collapse" id="${g.id}">
-  <div class="card card-body">
+                    d += `<div class="channel"><span style="margin-left:25px" data-toggle="collapse" href="#${g.id}" role="button" aria-expanded="false" aria-controls="${g.id}"># ${g.name}</span></div>
+ 
     <iframe src="/channel/${g.id}" frameborder="0" height="500" width="1000"></iframe>
-  </div>
-</div><br>`
+  <br>`
                 } else if (g.type === 4) {
                     d += `<div class="channel">V ${g.name}</div><br>`
                 } else if (g.type === 2) {
