@@ -12,7 +12,6 @@ try {
 const Eris = require('eris');
 const {token} = require('./config.json');
 const client = new Eris(token);
-const color = require('colors');
 const {render, mpRender, guildRender, channelRender, userRender} = require('./render');
 //Connecting to Discord
 client.connect();
@@ -23,9 +22,9 @@ const app = express()
 app.listen(3000);
 app.set('view engine', 'ejs');
 client.on('ready', () => {
-    console.log(color.blue('Launched!'));
-    console.log(color.green('Connected to Discord'));
-    console.log(color.blue(`Listening at Port 3000 (${color.yellow('http://localhost:3000/')})`));
+    console.log('Launched!');
+    console.log('Connected to Discord');
+    console.log(`Listening at Port 3000 (http://localhost:3000/)`);
     //rendering
     app.get('/', async (req, res) => {
         await render(client).then(async (r) => {
