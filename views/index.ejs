@@ -7,8 +7,12 @@
 <div class="row">
     <div class="col-md-6">
         <div class="mp">
-            <h1>Mp:</h1>
+            <h1>DM:</h1>
+            This will be take to 1 hour to load all DM (Refresh the page to load more)
+            <a href="/dm/">See all</a>
+            <div class="dm">
             <%- mp %>
+            </div>
         </div>
     </div>
     <div class="col-md-6">
@@ -37,6 +41,10 @@
         margin-top: 25px;
         color: white;
     }
+    .dm {
+        height: 31em !important;
+        overflow: auto;
+    }
     .guilds {
         height: 34em !important;
         overflow: auto;
@@ -61,9 +69,13 @@
         height: 25px;
     }
     .user {
+        margin: 20px;
+        padding:30px 30px 30px 10px;
+        background-color: #2f3136;
 
     }
     .user img {
+        margin: 10px;
         height: 75px;
     }
 </style>

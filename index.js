@@ -13,7 +13,7 @@ const Eris = require('eris');
 const {token} = require('./config.json');
 const client = new Eris(token);
 const color = require('colors');
-const {render, mpRender, guildRender, channelRender, userRender} = require('./render');
+const {render, mpRender, guildRender, channelRender, userRender, mpUniqueRender} = require('./render');
 //Connecting to Discord
 client.connect();
 
@@ -53,6 +53,11 @@ app.get('/channel/:id', async (req, res) => {
 })
 app.get('/user/:id', async (req, res) => {
     await userRender(client, req.params.id).then(async (r) => {
+        await res.render('guild.ejs', {title: 'The index page!', client: client, message: await r})
+    })
+})
+app.get('/dm/', async (req, res) => {
+    await mpUniqueRender(client).then(async (r) => {
         await res.render('guild.ejs', {title: 'The index page!', client: client, message: await r})
     })
 })
