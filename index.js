@@ -31,7 +31,7 @@ client.on('ready', () => {
 
 
 client.on('error', (err) => {
-    console.error(error)
+    console.error(err)
 })
 //rendering
 app.get('/', async (req, res) => {
