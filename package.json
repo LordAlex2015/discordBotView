@@ -1,0 +1,32 @@
+{
+  "name": "discodbotview",
+  "version": "1.0.0",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "ejs": "^3.1.3",
+    "eris": "^0.13.3",
+    "express": "latest"
+  },
+  "description": "See Bot Dm and server channels with messages",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LordAlex2015/discordBotView.git"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "view",
+    "dm"
+  ],
+  "author": "LordAlex2015",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LordAlex2015/discordBotView/issues"
+  },
+  "homepage": "https://github.com/LordAlex2015/discordBotView#readme"
+}

@@ -1,0 +1,43 @@
+<body>
+<button onclick="back()">< GO BACK</button>
+<script>
+    function back() {
+        window.history.back();
+    }
+</script>
+<div class="title">
+    <%- message %>
+</div>
+</body>
+<style>
+    <!-- Style -->
+    body {
+        background-color: #36393f;
+        margin: 0;
+    }
+    .channel {
+        padding: 5px;
+        background-color: #2f3136;
+        margin: 10px;
+        text-decoration: none;
+        color: black;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    a:hover {
+        color: black;
+        text-decoration: underline;
+    }
+    img {
+        border-radius: 100%;
+    }
+    .username {
+        font-size: 75px;
+    }
+    .title {
+        margin: 25px
+    }
+    <!-- Style -->
+</style>
