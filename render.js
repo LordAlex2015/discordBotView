@@ -22,7 +22,7 @@ module.exports = {
      */
     mpRender: async (client) => {
         return new Promise(async (resolve) => {
-            let d = "";
+            let d = "This will be take to 1 hour to load all DM (Refresh the page to load more)";
             await client.privateChannels.forEach((chan) => {
                 if (chan.lastMessageID !== null) {
                     d += `<span class="user" data-toggle="popover" title="${chan.recipient.username}#${chan.recipient.discriminator}" data-content="${chan.recipient.id}"><a href="/channel/${chan.id}"><img src="${chan.recipient.avatarURL}" alt="${chan.recipient.username}"></a></span>`;

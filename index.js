@@ -25,7 +25,7 @@ app.set('view engine', 'ejs');
 client.on('ready', () => {
     console.log(color.blue('Launched!'));
     console.log(color.green('Connected to Discord'));
-    console.log(color.blue(`Listening at Port 3000 (${color.yellow('https://localhost:3000/')})`));
+    console.log(color.blue(`Listening at Port 3000 (${color.yellow('http://localhost:3000/')})`));
     //rendering
     app.get('/', async (req, res) => {
         await render(client).then(async (r) => {
