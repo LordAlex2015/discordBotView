@@ -93,7 +93,7 @@ module.exports = {
                 }
                 resolve(d);
             }).catch(err => {
-                resolve("MISSING ACCESS");
+               
             })
             delete d;
         })
