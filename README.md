@@ -7,5 +7,5 @@ You can see Servers (Channels, Messages) and DM.
 
 **Copyright 2020 © LordAlex2015**
 
-##How to use it?
+## How to use it?
 Just place your bot token in the config.json file and open "cmd", tape `npm install` and after that run! (`npm start`)
